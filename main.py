@@ -12,6 +12,8 @@ MARGIN_RIGHT = WIDTH - MARGIN_LEFT
 MARGIN_TOP = 500
 MARGIN_BOTTOM = HEIGHT - MARGIN_TOP
 
+IMAGE_PATH = "./image.png"
+
 
 def days_in_year():
     year = datetime.datetime.now().year
@@ -29,7 +31,7 @@ def generate_image():
     data = img.load()
     percentage = progress()
 
-    percentage_break_off = 980 * percentage/100
+    percentage_break_off = (WIDTH-MARGIN_LEFT) * percentage/100
     for x in range(img.size[0]):
         for y in range(img.size[1]):
             data[x, y] = (255, 255, 255)
@@ -38,6 +40,7 @@ def generate_image():
                 if x > percentage_break_off:
                     data[x, y] = (0, 0, 0)
     img.show()
+    img.save(IMAGE_PATH)
 
 
 generate_image()
