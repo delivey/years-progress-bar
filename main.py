@@ -39,7 +39,6 @@ def generate_image():
                 data[x, y] = (0, 255, 0)
                 if x > percentage_break_off:
                     data[x, y] = (0, 0, 0)
-    img.show()
     img.save(IMAGE_PATH)
 
 
